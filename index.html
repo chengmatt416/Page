@@ -355,6 +355,11 @@
     }
     .project-toast.visible{opacity:1;transform:translate(-50%,0)}
 
+    .product-panel.product-panel--linked{cursor:pointer;transition:box-shadow .32s var(--ease)}
+    .product-panel.product-panel--linked:hover{box-shadow:0 30px 100px rgba(24,29,74,.22)}
+    .product-panel.product-panel--linked:focus-visible{outline:3px solid #aeb6ff;outline-offset:5px}
+    .product-panel--linked .product-wordmark:after{content:" ↗";font-family:var(--mono);font-size:16px;color:#aeb6ff}
+
     .product-section{padding-top:clamp(95px,10vw,150px)}
     .product-panel{
       position:relative;overflow:hidden;
@@ -941,6 +946,28 @@
         card.style.setProperty('--my', (event.clientY - r.top) + 'px');
       });
     });
+
+    // The featured IdeaStone panel follows the same first-public-link pattern.
+    const featuredPanel = document.querySelector('.product-panel');
+    if(featuredPanel){
+      const featuredLink = featuredPanel.querySelector('.product-public-links a[href]');
+      if(featuredLink){
+        featuredPanel.classList.add('product-panel--linked');
+        featuredPanel.tabIndex = 0;
+        featuredPanel.setAttribute('role', 'link');
+        featuredPanel.setAttribute('aria-label', 'Open IdeaStone project website');
+        function openFeatured(){ window.location.assign(featuredLink.href); }
+        featuredPanel.addEventListener('click', event => {
+          if(event.target.closest('a,button')) return;
+          openFeatured();
+        });
+        featuredPanel.addEventListener('keydown', event => {
+          if(event.target !== featuredPanel || (event.key !== 'Enter' && event.key !== ' ')) return;
+          event.preventDefault();
+          openFeatured();
+        });
+      }
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

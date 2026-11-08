@@ -301,6 +301,21 @@
     }
 
 
+    .product-public-links{
+      display:flex;gap:12px;flex-wrap:wrap;padding-top:24px;
+    }
+    .product-public-links a{
+      display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+      font-family:var(--mono);font-size:10px;letter-spacing:.04em;
+      color:#f7f7f2;padding:11px 16px;border:1px solid rgba(255,255,255,.3);
+      border-radius:999px;transition:background .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease);
+    }
+    .product-public-links a:hover,.product-public-links a:focus-visible{
+      background:rgba(255,255,255,.12);border-color:#cbd0ff;transform:translateY(-2px);
+    }
+    .project-links{display:flex;gap:12px;flex-wrap:wrap}
+    .project-links a{white-space:normal}
+
     .product-section{padding-top:clamp(95px,10vw,150px)}
     .product-panel{
       position:relative;overflow:hidden;
@@ -474,7 +489,8 @@
               <span>Android</span><span>On-device Agents</span><span>Linux</span><span>Verification</span><span>Accessibility</span>
             </div>
             <div class="project-links">
-              <a href="https://github.com/chengmatt416/umbra" target="_blank" rel="noopener noreferrer">Source &amp; documentation ↗</a>
+              <a href="https://umbra-agent.pages.dev/" target="_blank" rel="noopener noreferrer">Official website &amp; APK ↗</a>
+              <a href="https://github.com/chengmatt416/umbra" target="_blank" rel="noopener noreferrer">GitHub source ↗</a>
             </div>
           </div>
           <div class="research-arrow" aria-hidden="true">↗</div>
@@ -635,6 +651,11 @@
               learners without making every activity depend on expensive inference.
             </p>
           </article>
+        </div>
+
+        <div class="product-public-links">
+          <a href="https://learn.ideastone.tech/" target="_blank" rel="noopener noreferrer">Project website ↗</a>
+          <a href="https://survey.ideastone.tech/" target="_blank" rel="noopener noreferrer">Public survey ↗</a>
         </div>
 
         <div class="product-foot">
